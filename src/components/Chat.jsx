@@ -13,9 +13,12 @@ export default function Chat() {
                 value={text}
                 placeholder={`Chat to ${selectedContact.name}`}
                 onChange={handleTextChange}
+                className='w-full p-2 mb-2 border rounded'
             />
             <br />
-            <button>Send to {selectedContact.email}</button>
+            <button className='px-4 py-2 bg-blue-500 text-white rounded'>
+                Send to {selectedContact.email}
+            </button>
         </section>
     );
 }
