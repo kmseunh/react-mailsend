@@ -1,21 +1,21 @@
-import { useState } from 'react';
+import useStore from '../store';
 
-export default function Chat({ contact }) {
-    const [text, setText] = useState('');
+export default function Chat() {
+    const { selectedContact, text, updateText } = useStore();
 
     const handleTextChange = (e) => {
-        setText(e.target.value);
+        updateText(e.target.value);
     };
 
     return (
         <section className='chat'>
             <textarea
                 value={text}
-                placeholder={'Chat to ' + contact.name}
+                placeholder={`Chat to ${selectedContact.name}`}
                 onChange={handleTextChange}
             />
             <br />
-            <button>Send to {contact.email}</button>
+            <button>Send to {selectedContact.email}</button>
         </section>
     );
 }
